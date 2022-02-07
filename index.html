@@ -1,1 +1,390 @@
-<p>Hello, World!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Refi Guru</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #FFFFFF;
+  padding: 5px;
+  text-align: left;
+}
+
+.column1 {
+  float: left;
+  width: 30%;
+  padding: 15px;
+}
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+.column3 {
+  float: left;
+  width: 10%;
+  padding: 15px;
+}
+.middle {
+  float: left;
+  width: 10%;
+  padding: 15px;
+  height: 500px;
+  border-style: solid;
+}
+span {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50px;
+}
+ul {
+  list-style-type: none;
+  background: #D1FFBE;
+  padding: 20px;
+}
+ul li {
+  background: white;
+  margin: 5px;
+}
+
+#container {
+  width: 600px;
+  height: 500px;
+  position: relative;
+}
+#container2 {
+  width: 200px;
+  height: 600px;
+  position: relative;
+  
+}
+#available {
+  width: 110px;
+  height: 255px;
+  position: absolute;
+  bottom: 175px;
+  right: 248px;
+  background-color: #D1FFBE;
+}
+#used {
+  width: 110px;
+  height: 0px;
+  position: absolute;
+  bottom: 175px;
+  right: 248px;
+  background-color: green;
+
+}
+#cmtg {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 400px;
+}
+#pop2 {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 450px;
+}
+#pop3 {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 40%;
+  background-color: #d1ffbe;
+  font-size: 150%;
+}
+#demo {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  color: green;
+  font-size: 150%;
+}
+//#placeholder{
+  //visibility: visible;
+//}
+//#illustration{
+  //visibility: hidden;
+//}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.debtInfo {
+        position: relative;
+  margin-left: -15px;
+  width:500px;
+ margin-right: -15px;
+overflow: scroll;
+        }
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/dnprqmimzirefiguru.png">
+</div>
+<div class="header2">
+  <center>
+  <img id="progress1" src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/Efo9u5MEteprogress1.png">
+  <img id="progress2" src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/9HTzsTkg7iprogress2.png" hidden>
+  <img id="progress3" src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/yagaTnMrRHprogress3.png" hidden>
+  
+  </center>
+</div>
+
+
+<div class="row">
+  <div class="column1">
+    <center>
+    <h2 id="formTitle">Start Here</h2>
+    </center>
+    <form id="form1">
+    <label for="fname">Property Value</label>
+    <input type="text" id="property" name="prop" placeholder="Estimate Value">
+
+    <label for="lname">Mortgage Balance (P&I)</label>
+    <input type="text" id="mtgbalance" name="balance" placeholder="Remaining Balance">
+
+   <label for="lname">Monthly Payment</label>
+    <input type="text" id="mtgpayment" name="payment" placeholder="Principal and Interest Payment">
+  </form>
+	
+	<div class="debtInfo">
+	<ul id="debtList" hidden>
+	<p>Balance / Monthly Payment</p>
+	</ul>
+   <div class="debtInfoForm" id="form2" hidden>
+    <label for="debt1">Type of Debt</label>
+    <select name="debtTypes" id="debtTypes">
+    <option value="creditCard">Credit Card</option>
+    <option value="autoLoan">Auto Loan</option>
+    <option value="heloc">Mortgage</option>
+    </select>
+
+    <label for="debtBalance1">Remaining Balance</label>
+    <input type="text" id="debtBalance1" name="debtBalance1" placeholder="Remaining Balance">
+
+   <label for="pmt">Monthly Payment (P&I)</label>
+    <input type="text" id="debtPayment1" name="pmt" placeholder="Monthly Payment">
+    <p>Consolidate</p>
+    <input type="checkbox" id="yesOrNo" onchange="consolidate()">
+  </div>
+	</div>
+<center>
+ <button id="optionsButton" onclick="reveal()">See My Options</button>
+<button id="addDebtButton" onclick="addDebt()" hidden>Add a Debt</button>
+</center>
+  </div>
+
+<div class="middle">
+	<div>
+	<center>
+	<p style="font-size:30px"><strong>Your Debt Summary</strong></p>
+	<p>Current Mortgage Payment</p>
+     	<p id="paymentInfo">$- -</p>
+	<p>New Mortgage Payment</p>
+     	<p id="mtgPaymentInfo">$- -</p>
+	<p>Total monthly debt obligation</p>
+	<p id="allDebt">$- -</p>
+	</center>
+</div>
+</div>
+  
+  <div class="column2">
+    <center>
+    <div id ="container">
+    <img id ="blank" src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/DcLe91f1jkplaceholder.png">
+    <img id ="illustration" src="https://lhp-public-images.s3.amazonaws.com/lhp/209431/uploads/jQ7OTMUHqdgraphic.png" hidden>
+  <div id ="available" hidden></div>
+  <div id ="used" hidden></div>
+</div>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
+</center>
+  </div>
+</div>
+<div class="column3">
+
+<div id="container2" hidden>
+     <center>
+      <p>Property Value</p>
+     <span id="pop1">Property Value</span>
+     <span id="demo"></span>
+     <p id="cmtg">Current Mortgage Balance</p>
+     <span id="pop3">0</span>
+     <span id="pop2">0</span>
+     </center>
+</div>
+</div>
+
+<script>
+//let debtObligation = 0;
+    function reveal (){
+     document.getElementById("form1").setAttribute("hidden", "hidden");
+     document.getElementById("form2").removeAttribute("hidden");
+     document.getElementById("blank").setAttribute("hidden", "hidden");
+	document.getElementById("optionsButton").setAttribute("hidden", "hidden");
+     document.getElementById("illustration").removeAttribute("hidden");
+     document.getElementById("available").removeAttribute("hidden");
+     document.getElementById("used").removeAttribute("hidden");
+     document.getElementById("progress1").setAttribute("hidden", "hidden");
+     document.getElementById("progress2").removeAttribute("hidden");
+document.getElementById("addDebtButton").removeAttribute("hidden");
+     document.getElementById("container2").removeAttribute("hidden");
+     document.getElementById("formTitle").innerHTML = "Save Money By Consolidating Debt";
+     document.getElementById("paymentInfo").innerHTML = "$" + document.getElementById("mtgpayment").value
+	document.getElementById("debtList").removeAttribute("hidden");
+	slider.value = 0
+	availableEquity()
+     populate();
+     }
+    let i = 0;
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+    output.innerHTML = this.value;
+
+slider.oninput = function() {
+  i = this.value;
+  output.innerHTML = this.value;
+  availableEquity();
+  document.getElementById("used").style.height = 2.5*i + 'px';
+}
+	const input = document.getElementById("debtPayment1");
+	const log = document.getElementById('allDebt');
+
+	input.addEventListener('change', updateValue);
+
+	function updateValue(e) {
+  	log.textContent = e.target.value;
+	}
+
+//^^^^ allDebt = allDebt + debtPayment 1 
+
+   function populate(){
+    let pvalue = document.getElementById("property").value;
+    let cmtg = document.getElementById("mtgbalance").value;
+     document.getElementById("pop1").innerHTML = "$" + pvalue;
+    document.getElementById("pop2").innerHTML = "$" + cmtg;
+    
+     }
+let debtsToClear = 0;
+let debtAdjustment1 = 0;
+  function consolidate(){
+     const checkedOrNaw = document.getElementById('yesOrNo');
+	let debt = document.getElementById('debtBalance1').value;
+	let x = parseInt(debt)
+	if (checkedOrNaw.checked === true) {
+	debtsToClear = debtsToClear + x
+	availableEquity()
+	growBar(x)
+	} else {
+	debtsToClear = debtsToClear - parseInt(debt)
+	availableEquity()
+	shrinkBar(x)
+	
+	
+}
+	//function theObligation() {
+	
+	//}
+
+	function growBar(x){
+	let debt = x
+	let currentSize = parseInt(document.getElementById("used").style.height)
+	var pvalue = document.getElementById("property").value;
+	var cmtg = document.getElementById("mtgbalance").value;
+	var available = (pvalue - cmtg)
+	let y = (debt / available)
+	let adjustment = currentSize * y
+	debtAdjustment1 = adjustment
+	let newSize = currentSize + adjustment
+	console.log("Debt = " + debt)
+	console.log("Available = " + available)
+	console.log("Y = " + y)
+	console.log("Current Size = " + currentSize)
+	console.log("Adjustment = " + adjustment)
+	console.log("New Size = " + newSize)
+	document.getElementById("used").style.height = newSize + 'px';
+	}
+function shrinkBar(x){
+	let debt = x
+	let currentSize = parseInt(document.getElementById("used").style.height)
+	var pvalue = document.getElementById("property").value;
+	var cmtg = document.getElementById("mtgbalance").value;
+	var available = (pvalue - cmtg)
+	let y = (debt / available)
+	let adjustment = debtAdjustment1
+	let newSize = currentSize - adjustment
+	console.log("Debt = " + debt)
+	console.log("Available = " + available)
+	console.log("Y = " + y)
+	console.log("Current Size = " + currentSize)
+	console.log("Adjustment = " + adjustment)
+	console.log("New Size = " + newSize)
+	document.getElementById("used").style.height = newSize + 'px';
+	}
+
+  }
+   function availableEquity(){
+	var toBePaid = debtsToClear;
+    var entry = slider.value - 1;
+    var multiplier = entry / 100;
+    var pvalue = document.getElementById("property").value;
+    var cmtg = document.getElementById("mtgbalance").value;
+    var equity = multiplier * (pvalue - cmtg) + toBePaid;
+    var available = (pvalue - cmtg) - equity; 
+    document.getElementById("pop3").innerHTML = available;
+    output.innerHTML = "$" + equity;
+	calculatePayment(equity)
+	
+    }
+	function calculatePayment(x){
+	const interest = .035 / 12
+	const term = 360
+	let payment = 0
+	let currentMtg = parseInt(document.getElementById("mtgbalance").value)
+	let additionalMtg = x
+	let totalMtg = currentMtg + additionalMtg
+	payment = totalMtg * interest * (1 + interest) ^ 360 / (1 + interest) ^ 360 - 1
+	document.getElementById("mtgPaymentInfo").innerHTML = payment;
+	
+	}
+	let debtCounter = 1;
+	function addDebt() {
+	let value1 = document.getElementById("debtBalance1").value
+let value2 = document.getElementById("debtPayment1").value
+const node = document.createElement("li");
+const textnode = document.createTextNode("Debt" + " " + debtCounter + ": " + value1 + "/" + value2);
+node.appendChild(textnode);
+document.getElementById("debtList").appendChild(node);
+document.getElementById("debtPayment1").value = " ";
+document.getElementById("debtBalance1").value = " "; 
+	debtCounter++;
+	}
+</script>
+
+</body>
+</html>

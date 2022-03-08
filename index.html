@@ -2,84 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Refi Guru</title>
-	<style>
-body {
-    text-align: center;
-}
-.slide2{
-	padding: 50px;
-}
-input[type=number], select {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-label {
-	display: block;
-}
-
-	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = 'refresh' content = '10; url = https://www.ltlmortgage.com' />
+    <title>Colorado One Mortgage</title>
   </head>
   <body>
-
-   <div class="slide2" id="equityStatement" hidden>
-	<span>Wow! You have</span><br>
-	<p id="placeHolder">--</p><br>
-	<span>of availabe equity!</span>
-   </div>
-    
-    <form id="form1">
-    <h2 id="header1">First, Let's Calculate Your Available Equity</h2>
-    <label for="fname">Property Value</label><br>
-    <input type="number" id="property" name="prop" placeholder="Estimated Value"><br>
-
-    <label for="lname">Mortgage Balance</label><br>
-    <input type="number" id="mtgbalance" name="balance" placeholder="Remaining Balance"><br>
-
-   <label for="lname">Monthly Payment (P&I)</label><br>
-    <input type="number" id="mtgpayment" name="payment" placeholder="Principal and Interest Payment"><br>
-  </form>
-	<button id="showEquityBtn" onclick="checkForValue1()">Show Me My Equity</button>
-  
-
-  
+	<center>
+	<img src="https://www.bntouchmortgage.net/account/temp/user_31022/_logo.png">
+	<h1>We've Moved</h1>
+	<h2>Colorado One Mortgage is now LTL Mortgage</h2>
+	<h3>We're still the same great team, just with a cool new name</h3>
+	<h4>You'll be redirect in </h4>&nbsp;<h4 id = "countdown" onload></h4>
+	<h4>Or click here to go straight to LTLMortgage.com</h4>
+	</center>
 
 <script>
-
-	function revealForm2()  {
-	document.getElementById("form1").setAttribute("hidden", "hidden");
-	document.getElementById("showEquityBtn").setAttribute("hidden", "hidden");
-	document.getElementById("equityStatement").removeAttribute("hidden");
-	}
-	function calculateEquity()  {
-	let result;
-	let x = parseInt(document.getElementById("property").value);
-	let y = parseInt(document.getElementById("mtgbalance").value);
-	result = x - y;
-	if (x > y) {
-	document.getElementById("placeHolder").innerHTML = "$" + result;
-	revealForm2();
-	} else {
-		alert("Unfortunately, it appears you don't have any equity available at this time");
-		}
-	}
-	function checkForValue1(){
-		var myInput = document.getElementById("property");
-		if (myInput && myInput.value) {checkForValue2()}
-		else {alert("Please enter your Estimated Property Value")}
-	}
-	function checkForValue2(){
-		var myInput = document.getElementById("mtgbalance");
-		if (myInput && myInput.value) {calculateEquity()}
-		else {alert("Please enter your Remaining Mortgage Balance")}
-	}
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = " ";
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft + " seconds";
+  }
+  timeleft -= 1;
+}, 1000);
 </script>
-	
   </body>
 </html>

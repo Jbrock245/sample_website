@@ -11,6 +11,7 @@
 
 body {
   margin: 0;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 /* Style the header */
@@ -46,6 +47,12 @@ body {
   display: table;
   clear: both;
 }
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width:600px) {
@@ -59,6 +66,53 @@ body {
     width: 100%;
   }
 }
+.button-18 {
+  align-items: center;
+  background-color: #0d1f49;
+  border: 2;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus { 
+  background-color: #ffff;
+  color: #0d1f49;
+  border-color: #0d1f49;
+}
+
+.button-18:active {
+  background: #0d1f49;
+  color: rgb(255, 255, 255, .7);
+  border-color: #0d1f49;
+}
+
+.button-18:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
 </style>
 </head>
 <body>
@@ -71,22 +125,22 @@ body {
   <center>
   <h1>A Helpful Website Means Happier Customers</h1>
   <p>I'll build you one for free</p>
-  <button type="button">Let's Get Started!</button>
+  <button class="button-18" role="button">Let's Get Started</button>
   </center>
   </div>
   <div class="column1">
   <center>
-  <p>img</p>
+  <img src="https://cover-photo.s3.amazonaws.com/TheBanner.png" alt="Trulli" width="500" height="333">
   </center>
   </div>
   </div>
-<div class="topnav">
+<div class="topnav" style="background-color:#c6ced1;">
   <center>
   <h1>How It Works</h1>
   </center>
 </div>
 
-<div class="row">
+<div class="row2" style="background-color:#c6ced1;">
   <div class="column">
     <h2>Step 1</h2>
     <p>Your website will be hosted by Wordpress. The button below will take you to the signup page where you can purchase a hosting plan for $25/month</p>
@@ -102,6 +156,9 @@ body {
     <p>Once you approve it, we'll launch your website to the world</p>
   </div>
 </div>
+<center>
+<button class="button-18" role="button">Let's Get Started</button>
+</center>
 
 </body>
 </html>

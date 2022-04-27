@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -19,6 +20,7 @@ body {
 .header {
   
   text-align: left;
+ 
 }
 
 /* Style the top navigation bar */
@@ -114,25 +116,28 @@ body {
   background: rgba(0, 0, 0, .08);
   color: rgba(0, 0, 0, .3);
 }
+.responsive {
+  width: 100%;
+  height: auto;
+}
 </style>
 </head>
 <body>
 
 <div class="header">
   <img src="https://cover-photo.s3.amazonaws.com/icons/JBWlogo.png" alt="logo" width="200" height="100">
+<h3 class="responsive" style="text-align:right; padding-right: 50px;">(941)600-9755</h3>
 </div>
 <div class="row">
+<section>
   <div class="column1">
-  
-  <h1 style="padding-top:50px; padding-left:125px; font-size: 50px;">Hi, I'm Josh</h1>
-  <h3 style="padding-left:125px;">I love building free websites for small businesses</h3>
-  <button class="button-18" role="button" style="margin-left:125px;">Let's Get Started</button>
- 
+  <h1 style="padding-top:50px;  font-size: 50px;" class="responsive">Hi, I'm Josh</h1>
+  <h3 class="responsive">I love building free websites for small businesses</h3>
+  <a href='https://wpengine.com/smb/#pricing'><button class="button-18" role="button">Let's Get Started</button></a>
   </div>
+ 
   <div class="column1">
-  <center>
-  <img src="https://cover-photo.s3.amazonaws.com/icons/Website+Banner.png" alt="Trulli" width="500" height="400">
-  </center>
+  <img src="https://cover-photo.s3.amazonaws.com/icons/Website+Banner.png" class="responsive" alt="Trulli" width="650" height="350">
   </div>
   </div>
 <div class="topnav" style="background-color:#c6ced1;">
@@ -143,15 +148,18 @@ body {
 
 <div class="row2" style="background-color:#c6ced1;">
   <div class="column">
+  
   <img src="https://cover-photo.s3.amazonaws.com/icons/form.png" alt="signup" width="100">
     <h2>Step 1</h2>
     <p>Your website will be hosted by Wordpress. The button below will take you to the signup page where you can purchase a hosting plan for $25/month</p>
+    
   </div>
   
   <div class="column">
   <img src="https://cover-photo.s3.amazonaws.com/icons/working.png" alt="gettingStarted" width="100">
     <h2>Step 2</h2>
     <p>Once you've created an account, I'll get to work on your new website!</p>
+    <a href='https://wpengine.com/smb/#pricing'><button class="button-18" role="button" style="margin:25px;">Let's Get Started</button></a>
   </div>
   
   <div class="column">
@@ -161,9 +169,6 @@ body {
     <p>Once you approve it, we'll launch your website to the world</p>
   </div>
 </div>
-<center>
-<button class="button-18" role="button" style="margin:25px;">Let's Get Started</button>
-</center>
 
 </body>
 </html>
